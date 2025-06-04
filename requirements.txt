@@ -1,0 +1,67 @@
+# Core ML/RL Libraries
+torch>=2.0.0
+torchvision>=0.15.0
+stable-baselines3>=2.0.0
+gymnasium>=0.28.0
+numpy>=1.24.0
+scipy>=1.10.0
+scikit-learn>=1.3.0
+
+# Orbital Mechanics & Space Libraries
+skyfield>=1.46
+poliastro>=0.17.0
+sgp4>=2.22
+astropy>=5.3.0
+
+# Data Processing
+pandas>=2.0.0
+h5py>=3.8.0
+netCDF4>=1.6.0
+xarray>=2023.1.0
+
+# Visualization
+matplotlib>=3.7.0
+plotly>=5.14.0
+dash>=2.10.0
+seaborn>=0.12.0
+bokeh>=3.1.0
+
+# Web APIs & Data Sources
+requests>=2.31.0
+urllib3>=2.0.0
+beautifulsoup4>=4.12.0
+
+# Configuration & Logging
+pyyaml>=6.0
+hydra-core>=1.3.0
+wandb>=0.15.0
+tensorboard>=2.13.0
+tqdm>=4.65.0
+
+# Testing & Quality
+pytest>=7.3.0
+pytest-cov>=4.1.0
+black>=23.3.0
+flake8>=6.0.0
+mypy>=1.3.0
+
+# Jupyter & Development
+jupyter>=1.0.0
+ipykernel>=6.23.0
+jupyterlab>=4.0.0
+notebook>=6.5.4
+
+# Optional: Advanced Features
+ray[tune]>=2.4.0  # For hyperparameter tuning
+optuna>=3.2.0     # Alternative optimization
+dask>=2023.5.0    # Distributed computing
+
+# System Requirements
+psutil>=5.9.0
+opencv-python>=4.7.0
+pillow>=9.5.0
+
+# Development Tools
+pre-commit>=3.3.0
+sphinx>=7.0.0
+sphinx-rtd-theme>=1.2.0

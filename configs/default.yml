@@ -1,0 +1,252 @@
+# SatelliteRL Default Configuration
+# Author: Debanjan Shil
+# Date: June 2025
+
+# Environment Configuration
+environment:
+  name: "SatelliteConstellation-v1"
+  num_satellites: 5
+  max_targets: 20
+  observation_horizon: 24.0  # hours
+  time_step: 0.1  # hours (6 minutes)
+  reward_scaling: 1.0
+  
+  # Satellite parameters
+  satellite:
+    altitude_range: [400, 600]  # km
+    power_capacity: 100.0  # percentage
+    storage_capacity: 500.0  # GB
+    instrument_types: ["optical", "thermal", "radar", "communication"]
+    
+  # Target generation parameters
+  targets:
+    priority_distribution: [0.1, 0.2, 0.4, 0.2, 0.1]  # probability for priorities 1-5
+    deadline_range: [1, 48]  # hours
+    value_range: [10, 100]
+    spawn_rate: 0.1  # probability per time step
+    
+  # Weather and environmental factors
+  weather:
+    cloud_coverage_alpha: 2.0  # Beta distribution parameter
+    cloud_coverage_beta: 5.0
+    seasonal_variation: true
+    real_time_weather: false  # Use real weather APIs (future feature)
+
+# Agent Configuration
+agent:
+  type: "DQN"  # Options: DQN, DoubleDQN, DuelingDQN, Rainbow
+  
+  # Network architecture
+  network:
+    hidden_layers: [512, 256, 128]
+    activation: "ReLU"
+    dropout_rate: 0.2
+    batch_norm: false
+    
+  # Hyperparameters
+  hyperparameters:
+    learning_rate: 0.0001
+    gamma: 0.99  # Discount factor
+    epsilon_start: 1.0
+    epsilon_end: 0.01
+    epsilon_decay: 0.995
+    tau: 0.005  # Soft update parameter
+    
+  # Experience replay
+  replay_buffer:
+    capacity: 100000
+    batch_size: 64
+    min_experiences: 1000  # Minimum experiences before training
+    
+  # Training schedule
+  training:
+    target_update_frequency: 100  # steps
+    save_frequency: 1000  # episodes
+    evaluation_frequency: 100  # episodes
+    gradient_clip_norm: 1.0
+
+# Multi-Agent Configuration (for future expansion)
+multi_agent:
+  enabled: false
+  coordination_type: "centralized"  # Options: centralized, decentralized, hybrid
+  communication:
+    enabled: true
+    range_limit: 1000  # km
+    bandwidth_limit: 100  # Mbps
+    latency: 0.1  # seconds
+
+# Training Configuration
+training:
+  max_episodes: 5000
+  max_steps_per_episode: 240  # 24 hours / 0.1 hour steps
+  early_stopping:
+    enabled: true
+    patience: 200  # episodes
+    min_improvement: 1.0  # minimum reward improvement
+    
+  # Curriculum learning
+  curriculum:
+    enabled: true
+    stages:
+      - name: "basic"
+        episodes: 1000
+        num_satellites: 3
+        max_targets: 10
+      - name: "intermediate" 
+        episodes: 2000
+        num_satellites: 5
+        max_targets: 15
+      - name: "advanced"
+        episodes: 2000
+        num_satellites: 7
+        max_targets: 20
+
+# Evaluation Configuration
+evaluation:
+  episodes: 100
+  deterministic: true  # No exploration during evaluation
+  metrics:
+    - "completion_rate"
+    - "average_reward"
+    - "power_efficiency"
+    - "response_time"
+    - "coverage_area"
+    
+  # Benchmark scenarios
+  scenarios:
+    - name: "disaster_response"
+      description: "High-priority emergency observations"
+      num_emergency_targets: 5
+      time_pressure: true
+      
+    - name: "routine_monitoring"
+      description: "Regular Earth observation tasks"
+      target_distribution: "uniform"
+      weather_interference: true
+      
+    - name: "resource_limited"
+      description: "Low power and storage constraints"
+      initial_power: 30.0
+      initial_storage: 80.0
+
+# Logging and Monitoring
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  save_logs: true
+  log_directory: "results/logs"
+  
+  # Weights & Biases integration
+  wandb:
+    enabled: false
+    project: "satellite-rl"
+    entity: "debanjan06"
+    tags: ["constellation", "scheduling", "dqn"]
+    
+  # TensorBoard integration
+  tensorboard:
+    enabled: true
+    log_dir: "results/tensorboard"
+    
+  # Metrics to track
+  metrics:
+    episode_reward: true
+    completion_rate: true
+    power_usage: true
+    training_loss: true
+    epsilon_value: true
+    q_value_estimates: true
+
+# Visualization Configuration
+visualization:
+  enabled: true
+  save_plots: true
+  plot_directory: "results/plots"
+  
+  # Dashboard configuration
+  dashboard:
+    enabled: false  # Set to true to run real-time dashboard
+    port: 8050
+    refresh_rate: 5  # seconds
+    
+  # Plot types
+  plots:
+    training_curves: true
+    satellite_trajectories: true
+    coverage_maps: true
+    performance_heatmaps: true
+    
+# Data Configuration
+data:
+  # Real-world data sources
+  tle_data:
+    enabled: false  # Enable for real satellite orbital data
+    source: "space-track.org"
+    update_frequency: "daily"
+    
+  weather_data:
+    enabled: false  # Enable for real weather data
+    source: "openweathermap"
+    api_key: ""  # Add your API key
+    
+  ground_stations:
+    predefined: true
+    locations:
+      - name: "Svalbard"
+        lat: 78.9
+        lon: 11.9
+      - name: "McMurdo"
+        lat: -77.8
+        lon: 166.7
+      - name: "Fairbanks"
+        lat: 64.8
+        lon: -147.7
+      - name: "Singapore"
+        lat: 1.3
+        lon: 103.8
+
+# Hardware Configuration
+hardware:
+  device: "auto"  # auto, cpu, cuda
+  num_workers: 4  # for data loading
+  pin_memory: true
+  
+  # Memory optimization
+  memory_optimization:
+    enabled: true
+    gradient_checkpointing: false
+    mixed_precision: false
+
+# Reproducibility
+reproducibility:
+  seed: 42
+  deterministic: true
+  benchmark: false
+
+# Model Checkpointing
+checkpointing:
+  enabled: true
+  directory: "models/checkpoints"
+  save_best: true
+  save_latest: true
+  save_interval: 1000  # episodes
+  max_checkpoints: 5  # Keep only the latest N checkpoints
+
+# Experimental Features
+experimental:
+  # Hierarchical RL for action space decomposition
+  hierarchical_rl:
+    enabled: false
+    high_level_actions: ["region_selection", "priority_assignment"]
+    low_level_actions: ["satellite_assignment", "timing_optimization"]
+    
+  # Attention mechanisms for satellite coordination
+  attention:
+    enabled: false
+    attention_type: "self_attention"
+    num_heads: 8
+    
+  # Transfer learning from pre-trained models
+  transfer_learning:
+    enabled: false
+    pretrained_model: ""
+    freeze_layers: []

@@ -1,0 +1,385 @@
+# SatelliteRL .gitignore
+# Created by Debanjan Shil
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# PyTorch
+*.pth
+*.pt
+*.tar
+
+# TensorFlow
+*.h5
+*.pb
+saved_model/
+
+# Model files and checkpoints
+models/
+!models/.gitkeep
+checkpoints/
+!checkpoints/.gitkeep
+
+# Training results
+results/
+!results/.gitkeep
+logs/
+!logs/.gitkeep
+runs/
+outputs/
+
+# Data files
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+*.csv
+*.json
+*.pkl
+*.pickle
+*.npy
+*.npz
+*.h5
+*.hdf5
+
+# Large files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Weights & Biases
+wandb/
+
+# TensorBoard
+tensorboard/
+events.out.tfevents.*
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Atom
+.atom/
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Vim
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Satellite-specific files
+*.tle
+*.ephemeris
+tle_data/
+ephemeris_data/
+weather_cache/
+orbit_cache/
+
+# API keys and secrets
+.env.local
+.env.production
+secrets.yaml
+api_keys.txt
+credentials.json
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.temp
+*.log
+*.out
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Configuration overrides
+config_local.yaml
+config_dev.yaml
+config_prod.yaml
+
+# Documentation build
+docs/_build/
+docs/build/
+
+# Conda
+conda-meta/
+.conda/
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# Hydra
+.hydra/
+outputs/
+
+# DVC
+.dvc/
+.dvcignore
+
+# Plot files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.pdf
+plots/
+figures/
+
+# Video files
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# Audio files  
+*.wav
+*.mp3
+*.flac
+
+# Compressed files
+*.tar
+*.gz
+*.bz2
+*.xz
+
+# IDE specific
+.spyproject/
+.vscode/settings.json
+.vscode/launch.json
+
+# OS generated files
+Icon
+.directory
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran specific
+*.mod
+
+# MATLAB
+*.asv
+*.mex*
+
+# R
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+
+# Excel files
+*.xlsx
+*.xls
+
+# Keep important empty directories
+!data/
+!data/raw/
+!data/processed/
+!data/sample/
+!models/
+!models/checkpoints/
+!models/best_models/
+!results/
+!results/logs/
+!results/plots/
+!results/metrics/
