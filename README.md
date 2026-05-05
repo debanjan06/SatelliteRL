@@ -52,7 +52,7 @@ python src/simulation/run_basic_sim.py
 
 **Debanjan Shil**  
 Geospatial Data Science & Reinforcement Learning  
-[LinkedIn](https://www.linkedin.com/in/debanjanshil) | [GitHub](https://github.com/debanjan06)# SatelliteRL: Multi-Agent Reinforcement Learning for Satellite Constellation Scheduling
+[LinkedIn](https://www.linkedin.com/in/debanjan06) | [GitHub](https://github.com/debanjan06)# SatelliteRL: Multi-Agent Reinforcement Learning for Satellite Constellation Scheduling
 
 Scheduling a constellation of Earth observation satellites is a massive optimization headache. If you want high-frequency images of specific geographical zones, your satellites need to be in the right place at the right time. But they are strictly limited by battery life, onboard storage capacity, and the relentless physics of their orbits.
 
@@ -106,4 +106,4 @@ python src/simulation/run_basic_sim.py
 
 **Debanjan Shil**  
 Geospatial Data Science & Reinforcement Learning  
-[LinkedIn](https://www.linkedin.com/in/debanjanshil) | [GitHub](https://github.com/debanjan06)
+[LinkedIn](https://www.linkedin.com/in/debanjan06) | [GitHub](https://github.com/debanjan06)
