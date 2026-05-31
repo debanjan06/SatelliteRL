@@ -51,4 +51,8 @@ After addressing the reward function and adding PER, the agents stopped drifting
 
 ---
 
-Built by [Debanjan Shil](https://github.com/debanjan06)
+## 👨‍💻 Built By
+
+**Debanjan Shil**  
+Geospatial Data Science & Reinforcement Learning  
+[LinkedIn](https://www.linkedin.com/in/debanjanshil) | [GitHub](https://github.com/debanjan06)
